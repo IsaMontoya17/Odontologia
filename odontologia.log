@@ -1,0 +1,103 @@
+[2024-09-01 18:02:56] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:32:37] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:32:47] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:32:48] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:32:48] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:32:48] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:33:10] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:34:00] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:39:04] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 09:40:16] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Paciente.domicilio -> com.digitalhouse.odontologia.entity.Domicilio
+[2024-09-02 10:07:52] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:07:55] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:07:55] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:08:29] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Paciente.domicilio -> com.digitalhouse.odontologia.entity.Domicilio
+[2024-09-02 10:09:49] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:10:09] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:10:21] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:10:21] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:10:21] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:10:22] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:28:56] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 10:28:59] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:17] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:18] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:18] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:18] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:18] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:00:30] [ ERROR] [GlobalExceptionHandler:18] could not execute statement [La columna "ID" no permite valores nulos (NULL)
+NULL not allowed for column "ID"; SQL statement:
+insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default) [23502-224]] [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; SQL [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; constraint [null]
+[2024-09-02 11:01:55] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:02:50] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:03:56] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:04:59] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:07:54] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-02 11:16:03] [ ERROR] [GlobalExceptionHandler:18] No static resource static/diente.ico.
+[2024-09-02 13:41:40] [ ERROR] [GlobalExceptionHandler:18] could not execute statement [La columna "ID" no permite valores nulos (NULL)
+NULL not allowed for column "ID"; SQL statement:
+insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default) [23502-224]] [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; SQL [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; constraint [null]
+[2024-09-02 13:47:46] [ ERROR] [GlobalExceptionHandler:18] could not execute statement [La columna "ID" no permite valores nulos (NULL)
+NULL not allowed for column "ID"; SQL statement:
+insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default) [23502-224]] [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; SQL [insert into odontologos (apellido,matricula,nombre,id) values (?,?,?,default)]; constraint [null]
+[2024-09-02 14:03:18] [ ERROR] [GlobalExceptionHandler:18] could not execute statement [La columna "ID" no permite valores nulos (NULL)
+NULL not allowed for column "ID"; SQL statement:
+insert into domicilios (calle,localidad,numero,paciente_id,provincia,id) values (?,?,?,?,?,default) [23502-224]] [insert into domicilios (calle,localidad,numero,paciente_id,provincia,id) values (?,?,?,?,?,default)]; SQL [insert into domicilios (calle,localidad,numero,paciente_id,provincia,id) values (?,?,?,?,?,default)]; constraint [null]
+[2024-09-02 14:09:25] [ ERROR] [GlobalExceptionHandler:18] Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+[2024-09-02 14:09:31] [ ERROR] [GlobalExceptionHandler:18] Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+[2024-09-02 14:13:07] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:15:36] [ ERROR] [GlobalExceptionHandler:18] Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+[2024-09-02 14:17:21] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:17:49] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:26:30] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:37:18] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:40:41] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:48:24] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:50:15] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:52:10] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:53:31] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 14:55:31] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:04:49] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:05:56] [ ERROR] [GlobalExceptionHandler:18] Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+[2024-09-02 15:12:22] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:13:43] [ ERROR] [GlobalExceptionHandler:18] Handler dispatch failed: java.lang.StackOverflowError
+[2024-09-02 15:16:27] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:17:18] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:18:51] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:21:15] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-02 15:23:36] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-03 19:36:42] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-03 19:41:29] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Paciente.domicilio -> com.digitalhouse.odontologia.entity.Domicilio
+[2024-09-03 19:44:30] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
+[2024-09-03 19:46:29] [ ERROR] [GlobalExceptionHandler:18] Content-Type 'application/json;charset=UTF-8' is not supported
+[2024-09-03 20:39:41] [ INFO ] [PacienteService:29] Guardando Paciente con ID: {} y Domicilio con ID: {}nullnull
+[2024-09-03 20:58:42] [ INFO ] [PacienteService:29] Paciente guardado con ID: 5
+[2024-09-03 20:58:42] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 5
+[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 3, Domicilio ID: 3
+[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 21:26:38] [ INFO ] [PacienteService:51] Intentando eliminar el paciente con ID: 3
+[2024-09-03 21:26:38] [ INFO ] [PacienteService:57] Paciente con ID: 3 eliminado exitosamente.
+[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 21:27:17] [ INFO ] [PacienteService:29] Paciente guardado con ID: 6
+[2024-09-03 21:27:17] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 6
+[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 6, Domicilio ID: 6
+[2024-09-03 21:29:14] [ INFO ] [PacienteService:65] Actualizando paciente con ID: 2
+[2024-09-03 21:29:14] [ INFO ] [PacienteService:71] Información del paciente antes de actualizar: Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 21:29:14] [ INFO ] [PacienteService:77] Paciente actualizado con ID: 2
+[2024-09-03 21:29:14] [ INFO ] [PacienteService:79] Domicilio del paciente actualizado con ID: 2
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
