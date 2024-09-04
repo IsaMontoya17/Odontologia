@@ -70,34 +70,100 @@ insert into domicilios (calle,localidad,numero,paciente_id,provincia,id) values 
 [2024-09-03 19:41:29] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Paciente.domicilio -> com.digitalhouse.odontologia.entity.Domicilio
 [2024-09-03 19:44:30] [ ERROR] [GlobalExceptionHandler:18] org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.digitalhouse.odontologia.entity.Domicilio.paciente -> com.digitalhouse.odontologia.entity.Paciente
 [2024-09-03 19:46:29] [ ERROR] [GlobalExceptionHandler:18] Content-Type 'application/json;charset=UTF-8' is not supported
-[2024-09-03 20:39:41] [ INFO ] [PacienteService:29] Guardando Paciente con ID: {} y Domicilio con ID: {}nullnull
-[2024-09-03 20:58:42] [ INFO ] [PacienteService:29] Paciente guardado con ID: 5
-[2024-09-03 20:58:42] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 5
-[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
-[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
-[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 3, Domicilio ID: 3
-[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
-[2024-09-03 21:26:24] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
-[2024-09-03 21:26:38] [ INFO ] [PacienteService:51] Intentando eliminar el paciente con ID: 3
-[2024-09-03 21:26:38] [ INFO ] [PacienteService:57] Paciente con ID: 3 eliminado exitosamente.
-[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
-[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
-[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
-[2024-09-03 21:26:41] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
-[2024-09-03 21:27:17] [ INFO ] [PacienteService:29] Paciente guardado con ID: 6
-[2024-09-03 21:27:17] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 6
-[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 1, Domicilio ID: 1
-[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 2, Domicilio ID: 2
-[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 4, Domicilio ID: 4
-[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 5, Domicilio ID: 5
-[2024-09-03 21:27:22] [ INFO ] [PacienteService:81] Paciente ID: 6, Domicilio ID: 6
-[2024-09-03 21:29:14] [ INFO ] [PacienteService:65] Actualizando paciente con ID: 2
-[2024-09-03 21:29:14] [ INFO ] [PacienteService:71] Información del paciente antes de actualizar: Paciente ID: 2, Domicilio ID: 2
-[2024-09-03 21:29:14] [ INFO ] [PacienteService:77] Paciente actualizado con ID: 2
-[2024-09-03 21:29:14] [ INFO ] [PacienteService:79] Domicilio del paciente actualizado con ID: 2
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:94] Pacientes: 
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
-[2024-09-03 21:29:33] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-03 20:33:10] [ ERROR] [GlobalExceptionHandler:18] No static resource odontologo/id.
+[2024-09-03 20:33:10] [ ERROR] [GlobalExceptionHandler:18] No static resource favicon.ico.
+[2024-09-03 20:33:14] [ ERROR] [GlobalExceptionHandler:18] No static resource js/turnos.js.
+[2024-09-03 20:42:05] [ ERROR] [GlobalExceptionHandler:18] No static resource api/turnos.
+[2024-09-03 20:44:24] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos.
+[2024-09-03 20:57:24] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos.
+[2024-09-03 21:05:37] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos/1.
+[2024-09-03 21:05:41] [ ERROR] [GlobalExceptionHandler:18] Request method 'GET' is not supported
+[2024-09-03 21:05:42] [ ERROR] [GlobalExceptionHandler:18] Request method 'GET' is not supported
+[2024-09-03 21:09:06] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos/1.
+[2024-09-03 21:23:32] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos/1.
+[2024-09-03 21:23:38] [ ERROR] [GlobalExceptionHandler:18] No static resource turnos.
+[2024-09-03 21:57:19] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 21:57:19] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 21:58:10] [ INFO ] [PacienteService:29] Paciente guardado con ID: 2
+[2024-09-03 21:58:10] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 5
+[2024-09-03 21:58:13] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 21:58:13] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 21:58:13] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:10:22] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:10:22] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:10:22] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:10:23] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:10:23] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:10:23] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:12:24] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:12:24] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:12:24] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:15:24] [ INFO ] [PacienteService:29] Paciente guardado con ID: 3
+[2024-09-03 22:15:24] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 6
+[2024-09-03 22:15:27] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:15:27] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:15:27] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:15:27] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:19:17] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:19:17] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:19:17] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:19:17] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:20:20] [ INFO ] [PacienteService:29] Paciente guardado con ID: 4
+[2024-09-03 22:20:20] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 7
+[2024-09-03 22:20:23] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:20:23] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:20:23] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:20:23] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:20:23] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:27:16] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:27:16] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:27:16] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:27:16] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:27:16] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:34:40] [ ERROR] [GlobalExceptionHandler:18] Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "undefined"
+[2024-09-03 22:34:44] [ ERROR] [GlobalExceptionHandler:18] Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "undefined"
+[2024-09-03 22:35:00] [ ERROR] [GlobalExceptionHandler:18] Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "undefined"
+[2024-09-03 22:42:11] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:42:11] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:42:11] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:42:11] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:42:11] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:43:43] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:43:43] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:43:43] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:43:43] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:43:43] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:44:43] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:44:43] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:44:43] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:44:43] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:44:43] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:54:04] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:54:04] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 4
+[2024-09-03 22:54:04] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 5
+[2024-09-03 22:54:04] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 6
+[2024-09-03 22:54:04] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 7
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 22:56:28] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 22:56:30] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 22:56:32] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6

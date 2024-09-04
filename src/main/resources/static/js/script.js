@@ -6,6 +6,8 @@ import { logicaListarOdontologos } from './odontologo.js';
 import { logicaEliminarPaciente } from './paciente.js';
 import { logicaModificarPaciente } from './paciente.js';
 import { logicaListarPacientes } from './paciente.js';
+import { logicaAgregarTurno, logicaListarTurnos, logicaEliminarTurno } from './turno.js';
+
 
 window.addEventListener("load", function () {
 
@@ -21,23 +23,22 @@ window.addEventListener("load", function () {
 
 //VALIDACIONES TODO
 
-// ---------- agregar --------------
     logicaAgregarOdontologo();
     logicaAgregarPaciente();
+    logicaAgregarTurno();
 
-// ---------- eliminar -------------- TODO
+
     logicaEliminarOdontologo();
     logicaEliminarPaciente();
+    logicaEliminarTurno();
 
-// ---------- actualizar -------------- TODO
+
     logicaModificarOdontologo();
     logicaModificarPaciente();
 
-// ---------- buscar -------------- TODO
 
-
-// ---------- listar -------------- TODO
     logicaListarOdontologos();
     logicaListarPacientes();
+    logicaListarTurnos();
 
 });
