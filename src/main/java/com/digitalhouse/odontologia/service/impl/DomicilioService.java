@@ -1,9 +1,9 @@
 package com.digitalhouse.odontologia.service.impl;
 
 import com.digitalhouse.odontologia.entity.Domicilio;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.repository.IDomicilioRepository;
 import com.digitalhouse.odontologia.service.IDomicilioService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,6 @@ public class DomicilioService implements IDomicilioService {
     @Autowired
     IDomicilioRepository domicilioRepository;
 
-    @Autowired
-    ObjectMapper mapper;
     @Override
     public Domicilio guardar(Domicilio domicilio) {
         return domicilioRepository.save(domicilio);
@@ -27,9 +25,10 @@ public class DomicilioService implements IDomicilioService {
     public Domicilio buscarPorId(Long id) {
         Optional<Domicilio> domicilioEncontrado = domicilioRepository.findById(id);
         if(domicilioEncontrado.isPresent()) {
-            return mapper.convertValue(domicilioEncontrado, Domicilio.class);
+            return domicilioEncontrado.get();
+        }else{
+            throw new ResourceNotFoundException("No se encontro el domicilio con ID: " + id);
         }
-        return domicilioEncontrado.get();
     }
 
     @Override

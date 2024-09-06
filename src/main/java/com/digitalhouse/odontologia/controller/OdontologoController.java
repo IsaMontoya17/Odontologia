@@ -1,6 +1,8 @@
 package com.digitalhouse.odontologia.controller;
 
 import com.digitalhouse.odontologia.entity.Odontologo;
+import com.digitalhouse.odontologia.exception.HandleConflictException;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.service.IOdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,28 +19,53 @@ public class OdontologoController {
     private IOdontologoService odontologoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Odontologo> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(odontologoService.buscarPorId(id));
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) { //----------------------------YA
+        try {
+            Odontologo odontologo = odontologoService.buscarPorId(id);
+            return ResponseEntity.ok(odontologo);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     @PostMapping
-    public ResponseEntity<Odontologo> guardar(@RequestBody Odontologo odontologo) {
-        return ResponseEntity.ok(odontologoService.guardar(odontologo));
+    public ResponseEntity<?> guardar(@RequestBody Odontologo odontologo) { //----------------------------YA
+        try {
+            Odontologo odontologoGuardado = odontologoService.guardar(odontologo);
+            return ResponseEntity.ok(odontologoGuardado);
+        } catch (HandleConflictException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al guardar el odontólogo: " + e.getMessage());
+        }
     }
 
+
     @GetMapping
-    public ResponseEntity<List<Odontologo>> listarTodos() {
-        return ResponseEntity.ok(odontologoService.listar());
+    public ResponseEntity<?> listarTodos() { //----------------------------YA
+        try {
+            List<Odontologo> listaOdontologos = odontologoService.listar();
+            return ResponseEntity.ok(listaOdontologos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al listar odontólogos: " + e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id) {
-        odontologoService.eliminar(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Eliminado");
+    public ResponseEntity<String> eliminar(@PathVariable Long id) {  //----------------------------YA
+        try {
+            odontologoService.eliminar(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Odontólogo eliminado correctamente");
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al eliminar el odontólogo: " + e.getMessage());
+        }
     }
 
+
     @PutMapping("/{id}")
-    public ResponseEntity<Odontologo> actualizarOdontologo(@PathVariable Long id, @RequestBody Odontologo odontologo) {
+    public ResponseEntity<Odontologo> actualizarOdontologo(@PathVariable Long id, @RequestBody Odontologo odontologo) { //----------------------------TODO
         odontologo.setId(id);
         Odontologo odontologoActualizado = odontologoService.actualizar(odontologo);
 

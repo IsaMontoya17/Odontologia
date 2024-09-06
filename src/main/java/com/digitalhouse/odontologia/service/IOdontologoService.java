@@ -1,12 +1,13 @@
 package com.digitalhouse.odontologia.service;
 
 import com.digitalhouse.odontologia.entity.Odontologo;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 
 import java.util.List;
 
 public interface IOdontologoService {
     Odontologo guardar(Odontologo odontologo);
-    Odontologo buscarPorId(Long id);
+    Odontologo buscarPorId(Long id)throws ResourceNotFoundException;
     void eliminar(Long id);
     Odontologo actualizar(Odontologo odontologo);
     List<Odontologo> listar();

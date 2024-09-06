@@ -3,10 +3,12 @@ package com.digitalhouse.odontologia.service.impl;
 import com.digitalhouse.odontologia.entity.Odontologo;
 import com.digitalhouse.odontologia.entity.Paciente;
 import com.digitalhouse.odontologia.entity.Turno;
+import com.digitalhouse.odontologia.exception.HandleConflictException;
 import com.digitalhouse.odontologia.repository.IOdontologoRepository;
 import com.digitalhouse.odontologia.repository.IPacienteRepository;
 import com.digitalhouse.odontologia.repository.ITurnoRepository;
 import com.digitalhouse.odontologia.service.ITurnoService;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,40 +29,44 @@ public class TurnoService implements ITurnoService {
     @Autowired
     private IPacienteRepository pacienteRepository;
 
-    public Turno registrarTurno(Long odontologoId, Long pacienteId, LocalDate fecha, LocalTime hora) {
-        // Verificar si el odontólogo existe
+    public Turno registrarTurno(Long odontologoId, Long pacienteId, LocalDate fecha, LocalTime hora) throws BadRequestException, HandleConflictException{
+
         Optional<Odontologo> odontologoOptional = odontologoRepository.findById(odontologoId);
         if (odontologoOptional.isEmpty()) {
-            throw new IllegalArgumentException("Odontólogo no encontrado con ID: " + odontologoId);
+            throw new BadRequestException("No se puede realizar la solicitud porque no se ha encontrado un odontologo con ID: " + odontologoId);
         }
 
-        // Verificar si el paciente existe
         Optional<Paciente> pacienteOptional = pacienteRepository.findById(pacienteId);
         if (pacienteOptional.isEmpty()) {
-            throw new IllegalArgumentException("Paciente no encontrado con ID: " + pacienteId);
+            throw new BadRequestException("No se puede realizar la solicitud porque no se ha encontrado un paciente con ID: " + pacienteId);
         }
 
-        // Verificar si ya existe un turno para el odontólogo en la misma fecha y hora
-        List<Turno> todosLosTurnos = turnoRepository.findAll();  // Recuperar todos los turnos
-        List<Turno> turnosDelOdontologo = todosLosTurnos.stream()
-                .filter(turno -> turno.getOdontologo().getId().equals(odontologoId) && turno.getFecha().equals(fecha))
-                .collect(Collectors.toList());
 
-        boolean existeTurno = turnosDelOdontologo.stream()
-                .anyMatch(turno -> turno.getHora().equals(hora));
+        boolean existeTurnoOdontologo = turnoRepository.findAll().stream()
+                .anyMatch(turno -> turno.getOdontologo().getId().equals(odontologoId)
+                        && turno.getFecha().equals(fecha)
+                        && turno.getHora().equals(hora));
 
-        if (existeTurno) {
-            throw new IllegalArgumentException("Turno no disponible. El odontólogo ya tiene un turno asignado en esa fecha y hora.");
+        if (existeTurnoOdontologo) {
+            throw new HandleConflictException("Turno no disponible. El odontólogo ya tiene un turno asignado en esa fecha y hora.");
         }
 
-        // Crear el nuevo turno
+
+        boolean existeTurnoPaciente = turnoRepository.findAll().stream()
+                .anyMatch(turno -> turno.getPaciente().getId().equals(pacienteId)
+                        && turno.getFecha().equals(fecha)
+                        && turno.getHora().equals(hora));
+
+        if (existeTurnoPaciente) {
+            throw new HandleConflictException("Turno no disponible. El paciente ya tiene un turno asignado en esa fecha y hora.");
+        }
+
         Turno nuevoTurno = new Turno();
         nuevoTurno.setOdontologo(odontologoOptional.get());
         nuevoTurno.setPaciente(pacienteOptional.get());
         nuevoTurno.setFecha(fecha);
         nuevoTurno.setHora(hora);
 
-        // Guardar el turno en la base de datos
         return turnoRepository.save(nuevoTurno);
     }
 

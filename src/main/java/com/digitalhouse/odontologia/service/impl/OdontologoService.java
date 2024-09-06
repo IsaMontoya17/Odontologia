@@ -1,6 +1,8 @@
 package com.digitalhouse.odontologia.service.impl;
 
 import com.digitalhouse.odontologia.entity.Odontologo;
+import com.digitalhouse.odontologia.exception.HandleConflictException;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.repository.IOdontologoRepository;
 import com.digitalhouse.odontologia.service.IOdontologoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,27 +17,34 @@ public class OdontologoService implements IOdontologoService {
     @Autowired
     IOdontologoRepository odontologoRepository;
 
-    @Autowired
-    ObjectMapper mapper;
-
     @Override
-    public Odontologo guardar(Odontologo odontologo) {
+    public Odontologo guardar(Odontologo odontologo) throws HandleConflictException {
+        Optional<Odontologo> odontologoExistente = odontologoRepository.findByMatricula(odontologo.getMatricula());
+        if (odontologoExistente.isPresent()) {
+            throw new HandleConflictException("Ya existe un odontólogo con la matrícula: " + odontologo.getMatricula());
+        }
         return odontologoRepository.save(odontologo);
     }
 
     @Override
-    public Odontologo buscarPorId(Long id) {
+    public Odontologo buscarPorId(Long id) throws ResourceNotFoundException{
         Optional<Odontologo> odontologoEncontrado = odontologoRepository.findById(id);
         if(odontologoEncontrado.isPresent()) {
-            return mapper.convertValue(odontologoEncontrado, Odontologo.class);
+            return odontologoEncontrado.get();
+        }else{
+            throw new ResourceNotFoundException("No se encontro el odontologo con ID: " + id);
         }
-        return odontologoEncontrado.get();
     }
 
     @Override
-    public void eliminar(Long id) {
-        odontologoRepository.deleteById(id);
+    public void eliminar(Long id) throws ResourceNotFoundException {
+        if (odontologoRepository.existsById(id)) {
+            odontologoRepository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException("No se puede borrar el odontologo porque no se encontró el odontólogo con ID: " + id);
+        }
     }
+
 
     @Override
     public Odontologo actualizar(Odontologo odontologo) {

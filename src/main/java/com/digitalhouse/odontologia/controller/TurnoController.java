@@ -1,8 +1,11 @@
 package com.digitalhouse.odontologia.controller;
 
 import com.digitalhouse.odontologia.entity.Turno;
+import com.digitalhouse.odontologia.exception.BadRequestException;
+import com.digitalhouse.odontologia.exception.HandleConflictException;
 import com.digitalhouse.odontologia.service.impl.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +22,7 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @PostMapping
-    public ResponseEntity<?> registrarTurno(@RequestBody Map<String, Object> request) {
+    public ResponseEntity<?> registrarTurno(@RequestBody Map<String, Object> request) { //----------------------------YA
         try {
             Long odontologoId = Long.valueOf(request.get("odontologoId").toString());
             Long pacienteId = Long.valueOf(request.get("pacienteId").toString());
@@ -28,12 +31,15 @@ public class TurnoController {
 
             Turno nuevoTurno = turnoService.registrarTurno(odontologoId, pacienteId, fecha, hora);
             return ResponseEntity.ok(nuevoTurno);
-        } catch (DateTimeParseException e) {
-            return ResponseEntity.badRequest().body("Formato de fecha u hora inválido.");
+        } catch (BadRequestException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }catch(HandleConflictException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error al registrar el turno: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al registrar el turno: " + e.getMessage());
         }
     }
+
 
     @GetMapping
     public ResponseEntity<List<Turno>> obtenerTurnos() {

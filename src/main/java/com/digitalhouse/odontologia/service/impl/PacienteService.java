@@ -1,6 +1,7 @@
 package com.digitalhouse.odontologia.service.impl;
 
 import com.digitalhouse.odontologia.entity.Paciente;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.repository.IPacienteRepository;
 import com.digitalhouse.odontologia.service.IPacienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,9 +19,6 @@ public class PacienteService implements IPacienteService {
 
     @Autowired
     IPacienteRepository pacienteRepository;
-
-    @Autowired
-    ObjectMapper mapper;
 
     @Override
     public Paciente guardar(Paciente paciente) {
@@ -40,9 +38,10 @@ public class PacienteService implements IPacienteService {
     public Paciente buscarPorId(Long id) {
         Optional<Paciente> pacienteEncontrado = pacienteRepository.findById(id);
         if(pacienteEncontrado.isPresent()) {
-            return mapper.convertValue(pacienteEncontrado, Paciente.class);
+            return pacienteEncontrado.get();
+        }else{
+            throw new ResourceNotFoundException("No se encontro el paciente con ID: " + id);
         }
-        return pacienteEncontrado.get();
     }
 
     @Override
