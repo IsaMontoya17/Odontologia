@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @PostMapping
-    public ResponseEntity<Turno> registrarTurno(@RequestBody Map<String, Object> request) {
+    public ResponseEntity<?> registrarTurno(@RequestBody Map<String, Object> request) {
         try {
             Long odontologoId = Long.valueOf(request.get("odontologoId").toString());
             Long pacienteId = Long.valueOf(request.get("pacienteId").toString());
@@ -27,12 +28,13 @@ public class TurnoController {
 
             Turno nuevoTurno = turnoService.registrarTurno(odontologoId, pacienteId, fecha, hora);
             return ResponseEntity.ok(nuevoTurno);
+        } catch (DateTimeParseException e) {
+            return ResponseEntity.badRequest().body("Formato de fecha u hora inválido.");
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("Error al registrar el turno: " + e.getMessage());
         }
     }
 
-    // Endpoint para obtener todos los turnos
     @GetMapping
     public ResponseEntity<List<Turno>> obtenerTurnos() {
         List<Turno> turnos = turnoService.obtenerTodosLosTurnos();

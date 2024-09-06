@@ -167,3 +167,136 @@ insert into domicilios (calle,localidad,numero,paciente_id,provincia,id) values 
 [2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
 [2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
 [2024-09-03 22:56:36] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:11:48] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:11:52] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:11:58] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:12:02] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:12:44] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:13:05] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:13:15] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:13:17] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:13:36] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:13:47] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:14:12] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:15:15] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:100] Paciente ID: 4, Domicilio ID: 4
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:100] Paciente ID: 5, Domicilio ID: 5
+[2024-09-05 20:20:16] [ INFO ] [PacienteService:100] Paciente ID: 6, Domicilio ID: 6
+[2024-09-05 20:20:44] [ INFO ] [PacienteService:92] No se encontraron pacientes en la base de datos.
+[2024-09-05 20:21:33] [ INFO ] [PacienteService:29] Paciente guardado con ID: 1
+[2024-09-05 20:21:33] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 1
+[2024-09-05 20:22:05] [ INFO ] [PacienteService:29] Paciente guardado con ID: 2
+[2024-09-05 20:22:05] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 2
+[2024-09-05 20:22:36] [ INFO ] [PacienteService:29] Paciente guardado con ID: 3
+[2024-09-05 20:22:36] [ INFO ] [PacienteService:31] Domicilio guardado con ID: 3
+[2024-09-05 20:22:40] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:22:40] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:22:40] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:22:40] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:22:44] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:22:44] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:22:44] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:22:44] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:23:08] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:23:08] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:23:08] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:23:08] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:23:33] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:23:33] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:23:33] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:23:33] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:24:07] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:24:07] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:24:07] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:24:07] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:24:21] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:24:21] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:24:21] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:24:21] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:24:37] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:24:37] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:24:37] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:24:37] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:28:09] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:28:09] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:28:09] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:28:09] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:30:45] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:30:45] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:30:45] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:30:45] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:33:10] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:33:10] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:33:10] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:33:10] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:34:16] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:34:16] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:34:16] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:34:16] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3
+[2024-09-05 20:42:15] [ INFO ] [PacienteService:94] Pacientes: 
+[2024-09-05 20:42:15] [ INFO ] [PacienteService:100] Paciente ID: 1, Domicilio ID: 1
+[2024-09-05 20:42:15] [ INFO ] [PacienteService:100] Paciente ID: 2, Domicilio ID: 2
+[2024-09-05 20:42:15] [ INFO ] [PacienteService:100] Paciente ID: 3, Domicilio ID: 3

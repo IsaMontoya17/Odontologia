@@ -14,7 +14,7 @@ import java.time.LocalTime;
 public class Turno {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate fecha;
     private LocalTime hora;

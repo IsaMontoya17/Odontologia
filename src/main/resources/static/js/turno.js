@@ -18,11 +18,11 @@ export function formRegistrarTurno() {
                 </div>
                 <div>
                     <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <input type="date" id="fecha" name="fecha" required style="font-family: 'Outfit', sans-serif;">
                 </div>
                 <div>
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" required>
+                    <input type="time" id="hora" name="hora" required style="font-family: 'Outfit', sans-serif;">
                 </div>
                 <div>
                     <button type="submit">Registrar Turno</button>
@@ -85,7 +85,7 @@ function asignarEventoFormulario() {
             const fecha = document.getElementById('fecha').value;
             const hora = document.getElementById('hora').value;
 
-            fetch('/turnos', {  // Asegúrate de que esta URL sea correcta
+            fetch('/turnos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,11 +99,9 @@ function asignarEventoFormulario() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Limpiar el formulario en caso de éxito
                     registrarForm.reset();
                     mostrarMensaje('Turno asignado con éxito', 'success');
                 } else {
-                    // Manejar errores de la solicitud
                     response.json().then(data => {
                         mostrarMensaje(data.message || 'Turno no disponible', 'error');
                     }).catch(() => {
@@ -112,11 +110,9 @@ function asignarEventoFormulario() {
                 }
             })
             .catch(error => {
-                // Mostrar error de red
                 mostrarMensaje('Error al asignar turno', 'error');
             })
             .finally(() => {
-                // Limpia el formulario después de cada intento
                 registrarForm.reset();
             });
         };
@@ -126,9 +122,23 @@ function asignarEventoFormulario() {
 function mostrarMensaje(mensaje, tipo) {
     const responseDiv = document.getElementById('response');
     responseDiv.style.display = 'block';
+
+    // Estilos para error y éxito
+    if (tipo === 'error') {
+        responseDiv.style.background = 'rgba(255, 0, 0, 0.2)';
+        responseDiv.style.color = 'red';
+    } else {
+        responseDiv.style.background = 'rgba(0, 255, 0, 0.2)';
+        responseDiv.style.color = 'green';
+    }
+
+    // Estilos comunes para ambos tipos
+    responseDiv.style.padding = '10px';
+    responseDiv.style.margin = '.5em 0';
+    responseDiv.style.borderRadius = '5px';
     responseDiv.innerHTML = mensaje;
-    responseDiv.style.color = tipo === 'error' ? 'red' : 'green';
 }
+
 
 export function logicaAgregarTurno() {
     document.getElementById('asignar-turno').addEventListener('click', function () {
@@ -157,19 +167,21 @@ function cargarTurnos() {
         .then(response => response.json())
         .then(data => {
             const listaTurnos = document.getElementById('lista-turnos');
-            listaTurnos.innerHTML = ''; // Limpiar la lista antes de llenarla
+            listaTurnos.innerHTML = '';
 
             if (data && data.length > 0) {
-                let turnosHTML = '<ul>';
+                let turnosHTML = '<ul style="padding-left: 20px;">';
 
                 data.forEach(turno => {
                     turnosHTML += `
-                        <li>
-                            <strong>ID:</strong> ${turno.id} <br>
-                            <strong>Odontólogo:</strong> ${turno.odontologo.nombre} ${turno.odontologo.apellido} <br>
-                            <strong>Paciente:</strong> ${turno.paciente.nombre} ${turno.paciente.apellido} <br>
-                            <strong>Fecha:</strong> ${turno.fecha} <br>
-                            <strong>Hora:</strong> ${turno.hora}
+                        <li style="margin-bottom: 15px;">
+                            <div style="margin-left: 10px;">
+                                <strong>ID:</strong> ${turno.id} <br>
+                                <strong>Odontólogo:</strong> ${turno.odontologo.nombre} ${turno.odontologo.apellido} <br>
+                                <strong>Paciente:</strong> ${turno.paciente.nombre} ${turno.paciente.apellido} <br>
+                                <strong>Fecha:</strong> ${turno.fecha} <br>
+                                <strong>Hora:</strong> ${turno.hora}
+                            </div>
                         </li><hr>`;
                 });
 
