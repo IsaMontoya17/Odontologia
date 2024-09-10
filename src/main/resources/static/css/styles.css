@@ -177,15 +177,15 @@ fieldset {
     padding: 15px;
     background-color: #f9f9f9;
     margin: 10px 0 20px 0;
-    position: relative; /* Ensures legend is positioned correctly */
+    position: relative;
 }
 
 legend {
     font-weight: bold;
     padding: 0 10px;
-    background-color: none; /* Matches the background color */
-    position: absolute; /* Positions it inside the fieldset */
-    top: -10px; /* Adjusts position above the fieldset */
-    left: 10px; /* Adjusts horizontal position */
+    background-color: none;
+    position: absolute;
+    top: -10px;
+    left: 10px;
 }
 

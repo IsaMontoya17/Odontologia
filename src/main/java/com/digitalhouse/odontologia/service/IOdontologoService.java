@@ -8,7 +8,7 @@ import java.util.List;
 public interface IOdontologoService {
     Odontologo guardar(Odontologo odontologo);
     Odontologo buscarPorId(Long id)throws ResourceNotFoundException;
-    void eliminar(Long id);
-    Odontologo actualizar(Odontologo odontologo);
+    void eliminar(Long id)throws ResourceNotFoundException;
+    Odontologo actualizar(Odontologo odontologo) throws ResourceNotFoundException;
     List<Odontologo> listar();
 }

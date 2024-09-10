@@ -19,7 +19,7 @@ public class OdontologoController {
     private IOdontologoService odontologoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable Long id) { //----------------------------YA
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         try {
             Odontologo odontologo = odontologoService.buscarPorId(id);
             return ResponseEntity.ok(odontologo);
@@ -29,7 +29,7 @@ public class OdontologoController {
     }
 
     @PostMapping
-    public ResponseEntity<?> guardar(@RequestBody Odontologo odontologo) { //----------------------------YA
+    public ResponseEntity<?> guardar(@RequestBody Odontologo odontologo) {
         try {
             Odontologo odontologoGuardado = odontologoService.guardar(odontologo);
             return ResponseEntity.ok(odontologoGuardado);
@@ -42,7 +42,7 @@ public class OdontologoController {
 
 
     @GetMapping
-    public ResponseEntity<?> listarTodos() { //----------------------------YA
+    public ResponseEntity<?> listarTodos() {
         try {
             List<Odontologo> listaOdontologos = odontologoService.listar();
             return ResponseEntity.ok(listaOdontologos);
@@ -52,7 +52,7 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Long id) {  //----------------------------YA
+    public ResponseEntity<String> eliminar(@PathVariable Long id) {
         try {
             odontologoService.eliminar(id);
             return ResponseEntity.status(HttpStatus.OK).body("Odontólogo eliminado correctamente");
@@ -64,15 +64,27 @@ public class OdontologoController {
     }
 
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Odontologo> actualizarOdontologo(@PathVariable Long id, @RequestBody Odontologo odontologo) { //----------------------------TODO
-        odontologo.setId(id);
-        Odontologo odontologoActualizado = odontologoService.actualizar(odontologo);
 
-        if (odontologoActualizado != null) {
-            return ResponseEntity.ok(odontologoActualizado);
-        } else {
+    @PutMapping("/{id}")
+    public ResponseEntity<Odontologo> actualizarOdontologo(@PathVariable Long id, @RequestBody Odontologo odontologo) {
+        try {
+
+            Odontologo odontologoExistente = odontologoService.buscarPorId(id);
+
+            if (odontologoExistente != null) {
+                odontologo.setId(id);
+
+
+                Odontologo odontologoActualizado = odontologoService.actualizar(odontologo);
+                return ResponseEntity.ok(odontologoActualizado);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e) {
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }

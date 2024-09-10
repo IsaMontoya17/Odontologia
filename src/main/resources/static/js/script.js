@@ -1,13 +1,6 @@
-import { logicaAgregarPaciente } from './paciente.js';
-import { logicaAgregarOdontologo } from './odontologo.js';
-import { logicaEliminarOdontologo } from './odontologo.js';
-import { logicaModificarOdontologo } from './odontologo.js';
-import { logicaListarOdontologos } from './odontologo.js';
-import { logicaEliminarPaciente } from './paciente.js';
-import { logicaModificarPaciente } from './paciente.js';
-import { logicaListarPacientes } from './paciente.js';
+import { logicaAgregarPaciente,logicaEliminarPaciente, logicaModificarPaciente, logicaListarPacientes } from './paciente.js';
+import { logicaAgregarOdontologo, logicaEliminarOdontologo, logicaModificarOdontologo, logicaListarOdontologos } from './odontologo.js';
 import { logicaAgregarTurno, logicaListarTurnos, logicaEliminarTurno } from './turno.js';
-
 
 window.addEventListener("load", function () {
 
@@ -20,8 +13,6 @@ window.addEventListener("load", function () {
             this.classList.remove('active');
         });
     });
-
-//VALIDACIONES TODO
 
     logicaAgregarOdontologo();
     logicaAgregarPaciente();

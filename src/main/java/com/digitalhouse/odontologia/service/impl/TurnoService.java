@@ -4,11 +4,13 @@ import com.digitalhouse.odontologia.entity.Odontologo;
 import com.digitalhouse.odontologia.entity.Paciente;
 import com.digitalhouse.odontologia.entity.Turno;
 import com.digitalhouse.odontologia.exception.HandleConflictException;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.repository.IOdontologoRepository;
 import com.digitalhouse.odontologia.repository.IPacienteRepository;
 import com.digitalhouse.odontologia.repository.ITurnoRepository;
 import com.digitalhouse.odontologia.service.ITurnoService;
 import org.apache.coyote.BadRequestException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class TurnoService implements ITurnoService {
+
+    private static final Logger logger = Logger.getLogger(PacienteService.class);
     @Autowired
     private ITurnoRepository turnoRepository;
 
@@ -29,15 +32,17 @@ public class TurnoService implements ITurnoService {
     @Autowired
     private IPacienteRepository pacienteRepository;
 
-    public Turno registrarTurno(Long odontologoId, Long pacienteId, LocalDate fecha, LocalTime hora) throws BadRequestException, HandleConflictException{
+    public Turno registrarTurno(Long odontologoId, Long pacienteId, LocalDate fecha, LocalTime hora) throws BadRequestException, HandleConflictException {
 
         Optional<Odontologo> odontologoOptional = odontologoRepository.findById(odontologoId);
         if (odontologoOptional.isEmpty()) {
+            logger.warn("No se puede realizar la solicitud porque no se ha encontrado un odontologo con ID: " + odontologoId);
             throw new BadRequestException("No se puede realizar la solicitud porque no se ha encontrado un odontologo con ID: " + odontologoId);
         }
 
         Optional<Paciente> pacienteOptional = pacienteRepository.findById(pacienteId);
         if (pacienteOptional.isEmpty()) {
+            logger.warn("No se puede realizar la solicitud porque no se ha encontrado un paciente con ID: " + pacienteId);
             throw new BadRequestException("No se puede realizar la solicitud porque no se ha encontrado un paciente con ID: " + pacienteId);
         }
 
@@ -48,6 +53,7 @@ public class TurnoService implements ITurnoService {
                         && turno.getHora().equals(hora));
 
         if (existeTurnoOdontologo) {
+            logger.warn("Turno no disponible. El odontólogo ya tiene un turno asignado en esa fecha y hora.");
             throw new HandleConflictException("Turno no disponible. El odontólogo ya tiene un turno asignado en esa fecha y hora.");
         }
 
@@ -58,6 +64,7 @@ public class TurnoService implements ITurnoService {
                         && turno.getHora().equals(hora));
 
         if (existeTurnoPaciente) {
+            logger.warn("Turno no disponible. El paciente ya tiene un turno asignado en esa fecha y hora.");
             throw new HandleConflictException("Turno no disponible. El paciente ya tiene un turno asignado en esa fecha y hora.");
         }
 
@@ -71,15 +78,20 @@ public class TurnoService implements ITurnoService {
     }
 
     public List<Turno> obtenerTodosLosTurnos() {
-        return turnoRepository.findAll();
+        List<Turno> turnos = turnoRepository.findAll();
+        if (turnos.isEmpty()) {
+            logger.warn("No se encontraron turnos en la base de datos.");
+        }
+        return turnos;
     }
 
     @Override
-    public void eliminarTurno(Long turnoId) {
+    public void eliminarTurno(Long turnoId) throws ResourceNotFoundException{
         if (turnoRepository.existsById(turnoId)) {
             turnoRepository.deleteById(turnoId);
         } else {
-            throw new IllegalArgumentException("Turno no encontrado con ID: " + turnoId);
+            logger.warn("Turno no encontrado con ID: " + turnoId);
+            throw new ResourceNotFoundException("Turno no encontrado con ID: " + turnoId);
         }
     }
 }

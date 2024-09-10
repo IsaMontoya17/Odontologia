@@ -32,18 +32,16 @@ export function formRegistrarTurno() {
         </div>
     `;
 
-    // Llamadas para llenar los selectores de odontólogos y pacientes
     cargarOdontologos();
     cargarPacientes();
 
-    // Asignación de lógica al formulario después de que esté en el DOM
     asignarEventoFormulario();
 }
 
 function cargarOdontologos() {
     const odontologoSelect = document.getElementById('odontologo');
     if (odontologoSelect) {
-        fetch('/odontologos')  // Ajusta la URL al endpoint correspondiente en tu backend
+        fetch('/odontologos')
             .then(response => response.json())
             .then(data => {
                 data.forEach(odontologo => {
@@ -60,7 +58,7 @@ function cargarOdontologos() {
 function cargarPacientes() {
     const pacienteSelect = document.getElementById('paciente');
     if (pacienteSelect) {
-        fetch('/pacientes')  // Ajusta la URL al endpoint correspondiente en tu backend
+        fetch('/pacientes')
             .then(response => response.json())
             .then(data => {
                 data.forEach(paciente => {
@@ -132,7 +130,6 @@ function mostrarMensaje(mensaje, tipo) {
         responseDiv.style.color = 'green';
     }
 
-    // Estilos comunes para ambos tipos
     responseDiv.style.padding = '10px';
     responseDiv.style.margin = '.5em 0';
     responseDiv.style.borderRadius = '5px';
@@ -142,8 +139,7 @@ function mostrarMensaje(mensaje, tipo) {
 
 export function logicaAgregarTurno() {
     document.getElementById('asignar-turno').addEventListener('click', function () {
-        // Renderizar el formulario para registrar un turno
-        formRegistrarTurno();  // Renderiza el formulario
+        formRegistrarTurno();
     });
 }
 
@@ -158,12 +154,11 @@ export function formListarTurnos() {
         </div>
     `;
 
-    // Llamada para cargar y mostrar los turnos
     cargarTurnos();
 }
 
 function cargarTurnos() {
-    fetch('/turnos')  // Ajusta la URL al endpoint correspondiente en tu backend
+    fetch('/turnos')
         .then(response => response.json())
         .then(data => {
             const listaTurnos = document.getElementById('lista-turnos');
@@ -206,7 +201,6 @@ function cargarTurnos() {
 
 export function logicaListarTurnos() {
     document.getElementById('listar-turnos').addEventListener('click', function () {
-        // Renderizar la lista de turnos
         formListarTurnos();
     });
 }
@@ -246,7 +240,6 @@ export function logicaEliminarTurno() {
             function eliminarTurno() {
                 const id = document.querySelector('#id').value;
 
-                // Verifica que el ID no esté vacío
                 if (!id) {
                     console.error('ID is required');
                     return;

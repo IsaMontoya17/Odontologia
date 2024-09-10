@@ -186,7 +186,7 @@ export function formModificarOdontologo() {
             <form id="modificar-odontologo-form">
                 <div>
                     <label for="id">ID:</label>
-                    <input type="text" id="id" name="id" required>
+                    <input type="text" id="id" name="id">
                 </div>
                 <div id="datos-odontologo" style="display:none;">
                     <div>
@@ -248,7 +248,7 @@ export function logicaModificarOdontologo() {
                         document.querySelector('#apellido').value = data.apellido || "";
                         document.querySelector('#matricula').value = data.matricula || "";
 
-                        // Hacer el campo ID solo lectura
+                        // Hacer el campo id solo lectura
                         document.querySelector('#id').setAttribute('readonly', true);
 
                         document.querySelector('#datos-odontologo').style.display = 'block';
@@ -271,6 +271,10 @@ export function logicaModificarOdontologo() {
             if (nombre) formData.nombre = nombre;
             if (apellido) formData.apellido = apellido;
             if (matricula) formData.matricula = matricula;
+             if (!nombre || !apellido || !matricula) {
+                            mostrarError('Todos los campos son requeridos');
+                            return;
+                        }
 
             if (Object.keys(formData).length === 0) {
                 mostrarError('No hay cambios para modificar');
@@ -334,6 +338,8 @@ export function logicaModificarOdontologo() {
         }
     });
 }
+
+
 
 //-------------------------------------------------Listar------------------------------------------------------------------------
 

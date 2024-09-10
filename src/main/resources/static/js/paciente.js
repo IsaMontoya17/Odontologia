@@ -268,7 +268,6 @@ export function formModificarPaciente() {
     `;
 }
 
-
 export function logicaModificarPaciente() {
     document.getElementById('modificar-paciente').addEventListener('click', function () {
         formModificarPaciente();
@@ -286,7 +285,7 @@ export function logicaModificarPaciente() {
 
         function buscarPaciente(id) {
             if (!id) {
-                console.error('ID is required');
+                mostrarError('ID es requerido');
                 return;
             }
 
@@ -311,7 +310,6 @@ export function logicaModificarPaciente() {
                         document.querySelector('#provincia').value = data.domicilio.provincia || "";
                         document.querySelector('#fecha-alta').value = data.fechaAlta || "";
 
-                        // Hacer el campo ID solo lectura
                         document.querySelector('#id').setAttribute('readonly', true);
 
                         document.querySelector('#datos-paciente').style.display = 'block';
@@ -330,13 +328,18 @@ export function logicaModificarPaciente() {
             const nombre = document.querySelector('#nombre').value.trim();
             const apellido = document.querySelector('#apellido').value.trim();
             const dni = document.querySelector('#dni').value.trim();
-            const fechaAlta = document.querySelector('#fecha-alta').value;
+            const fechaAlta = document.querySelector('#fecha-alta').value.trim();
             const domicilio = {
                 calle: document.querySelector('#calle').value.trim(),
                 numero: document.querySelector('#numero').value.trim(),
                 localidad: document.querySelector('#localidad').value.trim(),
                 provincia: document.querySelector('#provincia').value.trim(),
             };
+
+            if (!nombre || !apellido || !dni || !fechaAlta || !domicilio.calle || !domicilio.numero || !domicilio.localidad || !domicilio.provincia) {
+                mostrarError('Todos los campos son requeridos');
+                return;
+            }
 
             if (nombre) formData.nombre = nombre;
             if (apellido) formData.apellido = apellido;
@@ -414,7 +417,6 @@ export function logicaModificarPaciente() {
 
 //-------------------------------------------------Listar------------------------------------------------------------------------
 
-// Función para mostrar el listado de pacientes
 export function formListarPacientes() {
     document.querySelector('main').innerHTML = `
         <div class="card">
@@ -433,7 +435,7 @@ export function logicaListarPacientes() {
     });
 
     function listarPacientes() {
-        const url = '/pacientes'; // Asegúrate de que esta URL sea correcta
+        const url = '/pacientes';
         const settings = {
             method: 'GET',
             headers: {

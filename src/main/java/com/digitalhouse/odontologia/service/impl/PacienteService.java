@@ -1,10 +1,11 @@
 package com.digitalhouse.odontologia.service.impl;
 
 import com.digitalhouse.odontologia.entity.Paciente;
+import com.digitalhouse.odontologia.exception.BadRequestException;
+import com.digitalhouse.odontologia.exception.HandleConflictException;
 import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.repository.IPacienteRepository;
 import com.digitalhouse.odontologia.service.IPacienteService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,47 +22,60 @@ public class PacienteService implements IPacienteService {
     IPacienteRepository pacienteRepository;
 
     @Override
-    public Paciente guardar(Paciente paciente) {
-        Paciente pacienteGuardado = pacienteRepository.save(paciente);
+    public Paciente guardar(Paciente paciente) throws HandleConflictException, BadRequestException {
 
-        logger.info("Paciente guardado con ID: " + pacienteGuardado.getId());
-        if (pacienteGuardado.getDomicilio() != null) {
-            logger.info("Domicilio guardado con ID: " + pacienteGuardado.getDomicilio().getId());
-        } else {
-            logger.warn("El domicilio no fue guardado.");
+        Optional<Paciente> pacienteExistente = pacienteRepository.findByDni(paciente.getDni());
+        if (pacienteExistente.isPresent()) {
+            logger.warn("Ya existe un paciente con el DNI: " + paciente.getDni());
+            throw new HandleConflictException("Ya existe un paciente con el DNI: " + paciente.getDni());
         }
+
+        if (paciente.getDomicilio().getCalle() == null || paciente.getDomicilio().getCalle().isEmpty() ||
+                paciente.getDomicilio().getNumero() == null ||
+                paciente.getDomicilio().getLocalidad() == null || paciente.getDomicilio().getLocalidad().isEmpty() ||
+                paciente.getDomicilio().getProvincia() == null || paciente.getDomicilio().getProvincia().isEmpty()) {
+
+            logger.warn("El paciente no fue guardado, todos los campos del domicilio son obligatorios.");
+            throw new BadRequestException("Todos los campos del domicilio son obligatorios.");
+        }
+        Paciente pacienteGuardado = pacienteRepository.save(paciente);
+        logger.info("Paciente guardado con ID: " + pacienteGuardado.getId());
+        logger.info("Domicilio guardado con ID: " + pacienteGuardado.getDomicilio().getId());
 
         return pacienteGuardado;
     }
 
     @Override
-    public Paciente buscarPorId(Long id) {
+    public Paciente buscarPorId(Long id) throws ResourceNotFoundException {
         Optional<Paciente> pacienteEncontrado = pacienteRepository.findById(id);
-        if(pacienteEncontrado.isPresent()) {
+        if (pacienteEncontrado.isPresent()) {
             return pacienteEncontrado.get();
-        }else{
-            throw new ResourceNotFoundException("No se encontro el paciente con ID: " + id);
+        } else {
+            logger.warn("No se encontró el paciente con ID: " + id);
+            throw new ResourceNotFoundException("No se encontró el paciente con ID: " + id);
         }
     }
 
     @Override
-    public void eliminar(Long id) {
-
+    public void eliminar(Long id) throws ResourceNotFoundException {
         logger.info("Intentando eliminar el paciente con ID: " + id);
-
-        Optional<Paciente> paciente = pacienteRepository.findById(id);
-
-        if (paciente.isPresent()) {
+        if (pacienteRepository.existsById(id)) {
             pacienteRepository.deleteById(id);
             logger.info("Paciente con ID: " + id + " eliminado exitosamente.");
         } else {
-            logger.warn("No se encontró ningún paciente con ID: " + id + " para eliminar.");
+            logger.warn("No se puede eliminar el paciente porque no se encontró con ID: " + id);
+            throw new ResourceNotFoundException("No se puede eliminar el paciente porque no se encontró con ID: " + id);
         }
     }
 
     @Override
-    public Paciente actualizar(Paciente paciente) {
+    public Paciente actualizar(Paciente paciente) throws ResourceNotFoundException, BadRequestException {
         logger.info("Actualizando paciente con ID: " + paciente.getId());
+
+        if (!pacienteRepository.existsById(paciente.getId())) {
+            logger.warn("No se puede actualizar el paciente porque no se encontró el paciente con ID: " + paciente.getId());
+            throw new ResourceNotFoundException("No se puede actualizar el paciente porque no se encontró el paciente con ID: " + paciente.getId());
+        }
 
         String domicilioInfo = (paciente.getDomicilio() != null)
                 ? "Domicilio ID: " + paciente.getDomicilio().getId()
@@ -72,12 +86,13 @@ public class PacienteService implements IPacienteService {
                 domicilioInfo);
 
         Paciente pacienteActualizado = pacienteRepository.save(paciente);
-
         logger.info("Paciente actualizado con ID: " + pacienteActualizado.getId());
+
         if (pacienteActualizado.getDomicilio() != null) {
             logger.info("Domicilio del paciente actualizado con ID: " + pacienteActualizado.getDomicilio().getId());
         } else {
             logger.warn("El paciente actualizado no tiene domicilio asignado.");
+            throw new BadRequestException("El paciente actualizado no tiene domicilio asignado.");
         }
 
         return pacienteActualizado;

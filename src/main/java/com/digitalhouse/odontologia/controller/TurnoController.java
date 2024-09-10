@@ -3,6 +3,7 @@ package com.digitalhouse.odontologia.controller;
 import com.digitalhouse.odontologia.entity.Turno;
 import com.digitalhouse.odontologia.exception.BadRequestException;
 import com.digitalhouse.odontologia.exception.HandleConflictException;
+import com.digitalhouse.odontologia.exception.ResourceNotFoundException;
 import com.digitalhouse.odontologia.service.impl.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +22,7 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @PostMapping
-    public ResponseEntity<?> registrarTurno(@RequestBody Map<String, Object> request) { //----------------------------YA
+    public ResponseEntity<?> registrarTurno(@RequestBody Map<String, Object> request) {
         try {
             Long odontologoId = Long.valueOf(request.get("odontologoId").toString());
             Long pacienteId = Long.valueOf(request.get("pacienteId").toString());
@@ -40,7 +40,6 @@ public class TurnoController {
         }
     }
 
-
     @GetMapping
     public ResponseEntity<List<Turno>> obtenerTurnos() {
         List<Turno> turnos = turnoService.obtenerTodosLosTurnos();
@@ -48,12 +47,14 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable Long id) {
+    public ResponseEntity<String> eliminar(@PathVariable Long id) {
         try {
             turnoService.eliminarTurno(id);
-            return ResponseEntity.ok("Turno eliminado con éxito.");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.OK).body("Turno eliminado correctamente");
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al eliminar el turno: " + e.getMessage());
         }
     }
 }
