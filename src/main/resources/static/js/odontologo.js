@@ -1,30 +1,33 @@
 // ---------------------------- agregar ----------------------------------
 
 export function formAgregarOdontologo(){
-        document.querySelector('main').innerHTML = `
-                <div class="card">
-                    <h1>Agregar Odontólogo</h1>
-                    <form id="agregar-odontologo-form">
-                        <div>
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" id="apellido" name="apellido" required>
-                        </div>
-                        <div>
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div>
-                            <label for="matricula">Matrícula:</label>
-                            <input type="text" id="matricula" name="matricula" required>
-                        </div>
-                        <div>
-                            <button type="submit">Agregar</button>
-                        </div>
-                    </form>
-                    <div id="response" style="display:none; margin-top:10px"></div>
+    document.querySelector('main').innerHTML = `
+        <div class="card">
+            <h1>Agregar Odontólogo</h1>
+            <form id="agregar-odontologo-form">
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                    <small>Solo se permiten letras y espacios.</small>
                 </div>
-            `;
-    }
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                    <small>Solo se permiten letras y espacios.</small>
+                </div>
+                <div>
+                    <label for="matricula">Matrícula:</label>
+                    <input type="text" id="matricula" name="matricula" required>
+                </div>
+                <div>
+                    <button type="submit">Agregar</button>
+                </div>
+            </form>
+            <div id="response" style="display:none; margin-top:10px"></div>
+        </div>
+    `;
+}
+
 
 export function logicaAgregarOdontologo(){
     document.getElementById('agregar-odontologo').addEventListener('click', function () {
@@ -191,11 +194,13 @@ export function formModificarOdontologo() {
                 <div id="datos-odontologo" style="display:none;">
                     <div>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre">
+                        <input type="text" id="nombre" name="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
                     </div>
                     <div>
                         <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido">
+                        <input type="text" id="apellido" name="apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
                     </div>
                     <div>
                         <label for="matricula">Matrícula:</label>
@@ -210,6 +215,7 @@ export function formModificarOdontologo() {
         </div>
     `;
 }
+
 
 export function logicaModificarOdontologo() {
     document.getElementById('modificar-odontologo').addEventListener('click', function () {

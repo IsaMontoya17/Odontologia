@@ -1212,3 +1212,44 @@ com.digitalhouse.odontologia.exception.ResourceNotFoundException: Turno no encon
 [2024-09-09 19:59:54] [ WARN ] [PacienteService:83] No se encontraron turnos en la base de datos.
 [2024-09-09 20:29:02] [ INFO ] [PacienteService:108] Pacientes: 
 [2024-09-09 20:29:02] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-09 20:45:02] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-09 20:45:02] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-10 22:00:27] [ WARN ] [OdontologoService:26] Ya existe un odontólogo con la matrícula: 333
+[2024-09-10 22:00:57] [ INFO ] [OdontologoService:38] Odontólogo con ID: 3 encontrado exitosamente.
+[2024-09-10 22:00:58] [ INFO ] [OdontologoService:38] Odontólogo con ID: 3 encontrado exitosamente.
+[2024-09-10 22:00:58] [ INFO ] [OdontologoService:59] Actualizando odontólogo con ID: 3
+[2024-09-10 22:00:58] [ INFO ] [OdontologoService:71] Odontólogo con ID: 3 actualizado exitosamente
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:114] Paciente ID: 3, Domicilio ID: 3
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:114] Paciente ID: 4, Domicilio ID: 4
+[2024-09-10 22:01:13] [ INFO ] [PacienteService:114] Paciente ID: 5, Domicilio ID: 5
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:114] Paciente ID: 3, Domicilio ID: 3
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:114] Paciente ID: 4, Domicilio ID: 4
+[2024-09-10 22:02:48] [ INFO ] [PacienteService:114] Paciente ID: 5, Domicilio ID: 5
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:114] Paciente ID: 3, Domicilio ID: 3
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:114] Paciente ID: 4, Domicilio ID: 4
+[2024-09-10 22:05:45] [ INFO ] [PacienteService:114] Paciente ID: 5, Domicilio ID: 5
+[2024-09-10 22:12:13] [ INFO ] [PacienteService:42] Paciente guardado con ID: 6
+[2024-09-10 22:12:13] [ INFO ] [PacienteService:43] Domicilio guardado con ID: 6
+[2024-09-10 22:12:41] [ INFO ] [PacienteService:42] Paciente guardado con ID: 7
+[2024-09-10 22:12:41] [ INFO ] [PacienteService:43] Domicilio guardado con ID: 7
+[2024-09-10 22:16:33] [ INFO ] [PacienteService:42] Paciente guardado con ID: 8
+[2024-09-10 22:16:33] [ INFO ] [PacienteService:43] Domicilio guardado con ID: 8
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 2, Domicilio ID: 2
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 3, Domicilio ID: 3
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 4, Domicilio ID: 4
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 5, Domicilio ID: 5
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 6, Domicilio ID: 6
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 7, Domicilio ID: 7
+[2024-09-10 22:16:43] [ INFO ] [PacienteService:114] Paciente ID: 8, Domicilio ID: 8
+[2024-09-10 22:17:14] [ WARN ] [PacienteService:29] Ya existe un paciente con el DNI: 12345

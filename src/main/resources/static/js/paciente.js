@@ -2,54 +2,61 @@
 
 export function formAgregarPaciente() {
     document.querySelector('main').innerHTML = `
-                <div class="card">
-                    <h1>Agregar Paciente</h1>
-                    <form id="agregar-paciente-form">
-                        <div>
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div>
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" id="apellido" name="apellido" required>
-                        </div>
-                        <div>
-                            <label for="dni">DNI:</label>
-                            <input type="text" id="dni" name="dni" required>
-                        </div>
-                        <div>
-                            <label for="domicilio">Domicilio:</label>
-                        </div>
-                        <fieldset>
-                            <div>
-                                <label for="calle">Calle:</label>
-                                <input type="text" id="calle" name="calle" required>
-                            </div>
-                            <div>
-                                <label for="numero">Número:</label>
-                                <input type="number" id="numero" name="numero" required>
-                            </div>
-                            <div>
-                                <label for="localidad">Localidad:</label>
-                                <input type="text" id="localidad" name="localidad" required>
-                            </div>
-                            <div>
-                                <label for="provincia">Provincia:</label>
-                                <input type="text" id="provincia" name="provincia" required>
-                            </div>
-                        </fieldset>
-                        <div>
-                            <label for="fecha-alta">Fecha de Alta:</label>
-                            <input type="date" id="fecha-alta" name="fecha-alta" required>
-                        </div>
-                        <div>
-                            <button type="submit">Agregar</button>
-                        </div>
-                    </form>
-                    <div id="response" style="display:none; margin-top:10px"></div>
+        <div class="card">
+            <h1>Agregar Paciente</h1>
+            <form id="agregar-paciente-form">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                    <small>Solo se permiten letras y espacios.</small>
                 </div>
-            `;
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                    <small>Solo se permiten letras y espacios.</small>
+                </div>
+                <div>
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required pattern="\\d+">
+                    <small>Solo se permiten números.</small>
+                </div>
+                <div>
+                    <label for="domicilio">Domicilio:</label>
+                </div>
+                <fieldset>
+                    <div>
+                        <label for="calle">Calle:</label>
+                        <input type="text" id="calle" name="calle" required>
+                    </div>
+                    <div>
+                        <label for="numero">Número:</label>
+                        <input type="number" id="numero" name="numero" required>
+                    </div>
+                    <div>
+                        <label for="localidad">Localidad:</label>
+                        <input type="text" id="localidad" name="localidad" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
+                    </div>
+                    <div>
+                        <label for="provincia">Provincia:</label>
+                        <input type="text" id="provincia" name="provincia" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
+                    </div>
+                </fieldset>
+                <div>
+                    <label for="fecha-alta">Fecha de Alta:</label>
+                    <input type="date" id="fecha-alta" name="fecha-alta" required>
+                </div>
+                <div>
+                    <button type="submit">Agregar</button>
+                </div>
+            </form>
+            <div id="response" style="display:none; margin-top:10px"></div>
+        </div>
+    `;
 }
+
+
 
 export function logicaAgregarPaciente() {
     document.getElementById('agregar-paciente').addEventListener('click', function () {
@@ -225,15 +232,18 @@ export function formModificarPaciente() {
                 <div id="datos-paciente" style="display:none;">
                     <div>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre">
+                        <input type="text" id="nombre" name="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
                     </div>
                     <div>
                         <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido">
+                        <input type="text" id="apellido" name="apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                        <small>Solo se permiten letras y espacios.</small>
                     </div>
                     <div>
                         <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni">
+                        <input type="text" id="dni" name="dni" pattern="\\d+" required>
+                        <small>Solo se permiten números.</small>
                     </div>
                     <fieldset>
                         <legend>Domicilio:</legend>
@@ -247,11 +257,13 @@ export function formModificarPaciente() {
                         </div>
                         <div>
                             <label for="localidad">Localidad:</label>
-                            <input type="text" id="localidad" name="localidad">
+                            <input type="text" id="localidad" name="localidad" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                            <small>Solo se permiten letras y espacios.</small>
                         </div>
                         <div>
                             <label for="provincia">Provincia:</label>
-                            <input type="text" id="provincia" name="provincia">
+                            <input type="text" id="provincia" name="provincia" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]+">
+                            <small>Solo se permiten letras y espacios.</small>
                         </div>
                     </fieldset>
                     <div>
@@ -267,6 +279,8 @@ export function formModificarPaciente() {
         </div>
     `;
 }
+
+
 
 export function logicaModificarPaciente() {
     document.getElementById('modificar-paciente').addEventListener('click', function () {
