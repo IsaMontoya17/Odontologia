@@ -30,7 +30,7 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<?> guardar(@RequestBody Paciente paciente) {//---------------------YA
+    public ResponseEntity<?> guardar(@RequestBody Paciente paciente) {
         try {
             Paciente pacienteGuardado = pacienteService.guardar(paciente);
             return ResponseEntity.ok(pacienteGuardado);
@@ -54,7 +54,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Long id) {//-----------------YA
+    public ResponseEntity<String> eliminar(@PathVariable Long id) {
         try {
             pacienteService.eliminar(id);
             return ResponseEntity.status(HttpStatus.OK).body("Paciente eliminado correctamente");
@@ -92,4 +92,5 @@ public class PacienteController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al actualizar el paciente: " + e.getMessage());
         }
     }
-}//CIERRE DE LA CLASE
+
+}

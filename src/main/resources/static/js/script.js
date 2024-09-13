@@ -18,16 +18,13 @@ window.addEventListener("load", function () {
     logicaAgregarPaciente();
     logicaAgregarTurno();
 
-
     logicaEliminarOdontologo();
     logicaEliminarOdontologoPorMatricula();
     logicaEliminarPaciente();
     logicaEliminarTurno();
 
-
     logicaModificarOdontologo();
     logicaModificarPaciente();
-
 
     logicaListarOdontologos();
     logicaListarPacientes();

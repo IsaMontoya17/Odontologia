@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -63,13 +64,12 @@ public class TurnoController {
         try {
             LocalDate fechaParseada = LocalDate.parse(fecha);
             List<Turno> turnos = turnoService.buscarTurnosPorFecha(fechaParseada);
-            return ResponseEntity.status(HttpStatus.OK).body("Turnos turnos encontrados exitosamente");
+            return ResponseEntity.ok(turnos);
         }catch (ResourceNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.ok(Collections.emptyList());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al buscar los turnos: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al buscar turnoa: " + e.getMessage());
         }
     }
-
 
 }
