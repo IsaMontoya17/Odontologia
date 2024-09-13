@@ -86,4 +86,16 @@ public class OdontologoService implements IOdontologoService {
         return todosLosOdontologos;
     }
 
+    @Override
+    public void eliminarPorMatricula(String matricula) throws ResourceNotFoundException {
+        Optional<Odontologo> odontologo = odontologoRepository.findByMatricula(matricula);
+        if (odontologo.isPresent()) {
+            odontologoRepository.deleteByMatricula(matricula);
+            logger.info("Odontólogo con matrícula: " + matricula + " eliminado exitosamente.");
+        } else {
+            logger.warn("No se encontró el odontólogo con matrícula: " + matricula);
+            throw new ResourceNotFoundException("No se encontró el odontólogo con matrícula: " + matricula);
+        }
+    }
+
 }

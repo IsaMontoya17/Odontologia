@@ -57,4 +57,19 @@ public class TurnoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al eliminar el turno: " + e.getMessage());
         }
     }
+
+    @GetMapping("/fecha/{fecha}")
+    public ResponseEntity<?> buscarTurnosPorFecha(@PathVariable String fecha) {
+        try {
+            LocalDate fechaParseada = LocalDate.parse(fecha);
+            List<Turno> turnos = turnoService.buscarTurnosPorFecha(fechaParseada);
+            return ResponseEntity.status(HttpStatus.OK).body("Turnos turnos encontrados exitosamente");
+        }catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al buscar los turnos: " + e.getMessage());
+        }
+    }
+
+
 }

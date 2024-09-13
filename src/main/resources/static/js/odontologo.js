@@ -90,7 +90,7 @@ export function logicaAgregarOdontologo(){
         });
     }
 
-// ---------------------------- eliminar ----------------------------------
+// ---------------------------- eliminar por id ----------------------------------
 
 export function formEliminarOdontologo() {
     document.querySelector('main').innerHTML = `
@@ -409,3 +409,178 @@ export function logicaListarOdontologos() {
             });
     }
 }
+
+//------------------------------------Buscar odontologo--------------------------------------------------------
+
+export function formBuscarOdontologo() {
+    document.querySelector('main').innerHTML = `
+        <div class="card">
+            <h1>Buscar Odontólogo por ID</h1>
+            <form id="buscar-odontologo-form">
+                <div>
+                    <label for="odontologo-id">ID del Odontólogo:</label>
+                    <input type="number" id="odontologo-id" name="odontologo-id" min="1" required>
+                    <small>El ID debe ser un número entero positivo.</small>
+                </div>
+                <div>
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
+            <div id="odontologo-result" style="display:none; margin-top:10px"></div>
+        </div>
+    `;
+}
+
+export function logicaBuscarOdontologo() {
+    document.getElementById('buscar-odontologo').addEventListener('click', function () {
+        formBuscarOdontologo();
+
+        document.getElementById("buscar-odontologo-form").onsubmit = function (e) {
+            e.preventDefault();
+            const id = document.querySelector('#odontologo-id').value.trim();
+
+            if (!id || isNaN(id) || parseInt(id) <= 0) {
+                mostrarError('Debe ingresar un ID válido (entero positivo)');
+                return;
+            }
+
+            buscarOdontologo(id);
+        };
+
+        function buscarOdontologo(id) {
+            const url = `/odontologos/${id}`;
+            const settings = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+
+            fetch(url, settings)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Odontólogo no encontrado');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    mostrarOdontologo(data);
+                })
+                .catch(error => {
+                    mostrarError('Odontólogo no encontrado. Por favor, verifique el ID e intente de nuevo.');
+                });
+        }
+
+        function mostrarOdontologo(odontologo) {
+            document.querySelector('#odontologo-result').innerHTML = `
+                <div class="alert alert-success" style="background:rgba(0, 255, 0, 0.2); padding: 1em; color: green; border-radius: 5px;">
+                    <h3>Odontólogo Encontrado:</h3>
+                    <p>ID: ${odontologo.id}</p>
+                    <p>Nombre: ${odontologo.nombre}</p>
+                    <p>Apellido: ${odontologo.apellido}</p>
+                    <p>Matrícula: ${odontologo.matricula}</p>
+                </div>`;
+            document.querySelector('#odontologo-result').style.display = 'block';
+        }
+
+        function mostrarError(mensaje) {
+            document.querySelector('#odontologo-result').innerHTML = `<div class="alert alert-danger alert-dismissible" style="background:rgba(255, 0, 0, 0.2);padding:.5em 1em;color: red;margin: .5em 0; border-radius: 5px;">
+                <p>${mensaje}</p></div>`;
+            document.querySelector('#odontologo-result').style.display = "block";
+            setTimeout(() => {
+                document.querySelector('#odontologo-result').style.display = "none";
+            }, 4000);
+        }
+    });
+}
+
+// ---------------------------- eliminar por matrícula ----------------------------------
+export function formEliminarOdontologoPorMatricula() {
+    document.querySelector('main').innerHTML = `
+        <div class="card">
+            <h1>Eliminar Odontólogo por Matrícula</h1>
+            <form id="eliminar-odontologo-matricula-form">
+                <div>
+                    <label for="matricula">Matrícula:</label>
+                    <input type="text" id="matricula" name="matricula" required>
+                </div>
+                <div>
+                    <button type="submit">Eliminar</button>
+                </div>
+            </form>
+            <div id="response" style="display:none; margin-top:10px"></div>
+        </div>
+    `;
+}
+
+export function logicaEliminarOdontologoPorMatricula() {
+    document.getElementById('eliminar-odontologo-matricula').addEventListener('click', function () {
+        formEliminarOdontologoPorMatricula();
+
+        document.getElementById("eliminar-odontologo-matricula-form").onsubmit = function (e) {
+            e.preventDefault();
+            eliminarOdontologoPorMatricula();
+        };
+
+        function eliminarOdontologoPorMatricula() {
+            const matricula = document.querySelector('#matricula').value.trim();
+
+            if (!matricula) {
+                mostrarError('Matrícula es requerida');
+                return;
+            }
+
+            const url = `/odontologos/matricula/${matricula}`;
+            const settings = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+
+            fetch(url, settings)
+                .then(response => {
+                    if (response.ok) {
+                        // Manejo de la respuesta exitosa
+                        let successAlert = '<div class="alert alert-success alert-dismissible" style="background:rgba(0, 255, 0, 0.2);padding:.5em 1em;color: green; margin: .5em 0; padding: 10px; border-radius: 5px;">' +
+                            '<p>Odontólogo eliminado exitosamente</p></div>';
+
+                        document.querySelector('#response').innerHTML = successAlert;
+                        document.querySelector('#response').style.display = "block";
+                        resetEliminarForm();
+
+                        setTimeout(() => {
+                            document.querySelector('#response').style.display = "none";
+                        }, 4000);
+                    } else {
+                        // Manejo de errores según el código de estado
+                        response.text().then(text => {
+                            if (response.status === 404) {
+                                mostrarError('Odontólogo no encontrado');
+                            } else {
+                                mostrarError(`Error al eliminar: ${text}`);
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    mostrarError(`Error al eliminar: ${error.message}`);
+                });
+        }
+
+        function mostrarError(mensaje) {
+            document.querySelector('#response').innerHTML = `<div class="alert alert-danger alert-dismissible" style="background:rgba(255, 0, 0, 0.2);padding:.5em 1em;color: red;margin: .5em 0; padding: 10px; border-radius: 5px;">
+                <p>${mensaje}</p></div>`;
+            document.querySelector('#response').style.display = "block";
+            setTimeout(() => {
+                document.querySelector('#response').style.display = "none";
+            }, 4000);
+        }
+
+        function resetEliminarForm() {
+            document.querySelector('#matricula').value = "";
+        }
+    });
+}
+
+

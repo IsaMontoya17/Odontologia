@@ -83,8 +83,19 @@ public class OdontologoController {
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } catch (Exception e) {
-
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @DeleteMapping("/matricula/{matricula}")
+    public ResponseEntity<String> eliminarPorMatricula(@PathVariable String matricula) {
+        try {
+            odontologoService.eliminarPorMatricula(matricula);
+            return ResponseEntity.status(HttpStatus.OK).body("Odontólogo eliminado correctamente");
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno al eliminar el odontólogo: " + e.getMessage());
         }
     }
 }

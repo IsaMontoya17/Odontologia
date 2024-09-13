@@ -94,4 +94,15 @@ public class TurnoService implements ITurnoService {
             throw new ResourceNotFoundException("Turno no encontrado con ID: " + turnoId);
         }
     }
+
+    @Override
+    public List<Turno> buscarTurnosPorFecha(LocalDate fecha) throws ResourceNotFoundException {
+        List<Turno> turnos = turnoRepository.findByFecha(fecha);
+        if (turnos.isEmpty()) {
+            throw new ResourceNotFoundException("No se encontraron turnos para la fecha: " + fecha);
+        }
+        return turnos;
+    }
+
+
 }

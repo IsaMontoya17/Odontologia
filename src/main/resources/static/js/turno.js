@@ -293,5 +293,86 @@ export function logicaEliminarTurno() {
     }
 }
 
+// ------------------------------------------ buscar turno por fecha ---------------------------------------------
+export function formBuscarTurnoPorFecha() {
+    document.querySelector('main').innerHTML = `
+        <div class="card">
+            <h1>Buscar Turnos por Fecha</h1>
+            <form id="buscar-turno-fecha-form">
+                <div>
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required style="font-family: 'Outfit', sans-serif;">
+                </div>
+                <div>
+                    <button type="submit">Buscar Turno</button>
+                </div>
+            </form>
+            <div id="lista-turnos"></div>
+            <div id="response" style="display:none; margin-top:10px"></div>
+        </div>
+    `;
+
+    asignarEventoBuscarPorFecha();
+}
+
+function asignarEventoBuscarPorFecha() {
+    const buscarForm = document.getElementById('buscar-turno-fecha-form');
+    if (buscarForm) {
+        buscarForm.onsubmit = function (e) {
+            e.preventDefault();
+
+            const fecha = document.getElementById('fecha').value;
+            if (fecha) {
+                buscarTurnosPorFecha(fecha);
+            } else {
+                mostrarMensaje('Debe seleccionar una fecha', 'error');
+            }
+        };
+    }
+}
+
+function buscarTurnosPorFecha(fecha) {
+    fetch(`/turnos/fecha/${fecha}`)
+        .then(response => response.json())
+        .then(data => {
+            const listaTurnos = document.getElementById('lista-turnos');
+            listaTurnos.innerHTML = '';
+
+            if (data && data.length > 0) {
+                let turnosHTML = '<ul style="padding-left: 20px;">';
+
+                data.forEach(turno => {
+                    turnosHTML += `
+                        <li style="margin-bottom: 15px;">
+                            <div style="margin-left: 10px;">
+                                <strong>ID:</strong> ${turno.id} <br>
+                                <strong>Odontólogo:</strong> ${turno.odontologo.nombre} ${turno.odontologo.apellido} <br>
+                                <strong>Paciente:</strong> ${turno.paciente.nombre} ${turno.paciente.apellido} <br>
+                                <strong>Fecha:</strong> ${turno.fecha} <br>
+                                <strong>Hora:</strong> ${turno.hora}
+                            </div>
+                        </li><hr>`;
+                });
+
+                turnosHTML += '</ul>';
+                listaTurnos.innerHTML = turnosHTML;
+            } else {
+                listaTurnos.innerHTML = '<p>No hay turnos registrados en esa fecha</p>';
+            }
+        })
+        .catch(error => {
+            mostrarMensaje('Error al buscar turnos, intente nuevamente', 'error');
+        });
+}
+
+
+export function logicaBuscarTurnosPorFecha() {
+    document.getElementById('buscar-turno-fecha').addEventListener('click', function () {
+        formBuscarTurnoPorFecha();
+    });
+}
+
+
+
 
 
