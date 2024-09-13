@@ -1417,3 +1417,20 @@ com.digitalhouse.odontologia.exception.ResourceNotFoundException: Turno no encon
 [2024-09-12 22:31:42] [ WARN ] [PacienteService:54] No se encontró el paciente con ID: -1
 [2024-09-12 22:42:24] [ INFO ] [PacienteService:108] Pacientes: 
 [2024-09-12 22:42:24] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-12 22:43:38] [ INFO ] [PacienteService:73] Actualizando paciente con ID: 1
+[2024-09-12 22:43:38] [ INFO ] [PacienteService:84] Información del paciente antes de actualizar: Paciente ID: 1, Domicilio ID: 1
+[2024-09-12 22:43:38] [ INFO ] [PacienteService:89] Paciente actualizado con ID: 1
+[2024-09-12 22:43:38] [ INFO ] [PacienteService:92] Domicilio del paciente actualizado con ID: 1
+[2024-09-12 22:43:41] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-12 22:43:41] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-12 22:44:34] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-12 22:44:34] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-12 22:44:34] [ WARN ] [OdontologoService:84] No se encontraron odontólogos en la base de datos
+[2024-09-12 22:44:51] [ INFO ] [OdontologoService:30] Odontólogo con ID: 1 guardado exitosamente.
+[2024-09-12 22:44:52] [ INFO ] [PacienteService:108] Pacientes: 
+[2024-09-12 22:44:52] [ INFO ] [PacienteService:114] Paciente ID: 1, Domicilio ID: 1
+[2024-09-12 22:45:51] [ WARN ] [PacienteService:83] No se encontraron turnos en la base de datos.
+[2024-09-12 22:45:53] [ WARN ] [PacienteService:93] Turno no encontrado con ID: 4
+[2024-09-12 22:45:56] [ WARN ] [PacienteService:83] No se encontraron turnos en la base de datos.
+[2024-09-12 22:45:58] [ WARN ] [PacienteService:93] Turno no encontrado con ID: 3
+[2024-09-12 22:48:20] [ WARN ] [PacienteService:93] Turno no encontrado con ID: 4

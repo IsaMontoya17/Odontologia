@@ -215,7 +215,7 @@ export function formEliminarTurno() {
             <form id="eliminar-turno-form">
                 <div>
                     <label for="id">ID del Turno:</label>
-                    <input type="text" id="id" name="id" required>
+                    <input type="number" id="id" name="id" required min="1">
                 </div>
                 <div>
                     <button type="submit">Eliminar</button>
